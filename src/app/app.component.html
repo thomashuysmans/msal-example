@@ -5,6 +5,10 @@
   <button mat-raised-button *ngIf="!loginDisplay" (click)="login()">Login</button>
   <button mat-raised-button *ngIf="loginDisplay" (click)="logout()">Logout</button>
 
+  <ng-container *ngIf="sessionTimeRemaining > 0">
+    <p>Session expires in: {{ sessionTimeRemaining}} seconds</p>
+    <button mat-raised-button (click)="doSomething()">Do something</button>
+  </ng-container>
 
   <!--This is to avoid reload during acquireTokenSilent() because of hidden iframe -->
   <router-outlet *ngIf="!isIframe"></router-outlet>
